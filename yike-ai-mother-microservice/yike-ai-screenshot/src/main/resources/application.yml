@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: yike-ai-screenshot
+  profiles:
+    active: local
+server:
+  port: 8127
+  servlet:
+    context-path: /api
+# 添加 COS 对象存储配置（需要从腾讯云获取）
+cos:
+  client:
+    host: your-custom-domain.com
+    secretId: your-secret-id
+    secretKey: your-secret-key
+    region: your-region
+    bucket: your-bucket-name
+# Dubbo
+dubbo:
+  registry:
+    address: nacos://127.0.0.1:8848?username=nacos&password=nacos
+    register-mode: instance
+  protocol:
+    name: tri
+    port: 50052
+  consumer:
+    timeout: 120000
+  provider:
+    timeout: 120000
